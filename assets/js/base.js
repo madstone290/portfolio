@@ -28,6 +28,11 @@ new ResizeObserver(outputsize).observe(header);
 // 모달
 const modal = document.querySelector('.modal');
 const modalClose = document.querySelector(".modal__close");
+modal.addEventListener("click", (evt)=>{
+    if(evt.target == modal)
+        modal.style.display = "none";
+});
+
 modalClose.addEventListener("click", (evt)=>{
     modal.style.display = "none";
 });
