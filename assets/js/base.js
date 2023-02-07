@@ -43,6 +43,6 @@ const modalImg = document.querySelector(".modal__img");
 for(const img of projectImgs){
     img.addEventListener("click", (evt)=>{
         modalImg.src = img.src;
-        modal.style.display = "block";
+        modal.style.display = "flex";
     });
 }
