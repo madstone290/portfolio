@@ -48,7 +48,7 @@ a:hover {
 
 .modal {
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 100; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%;
@@ -61,7 +61,6 @@ a:hover {
     justify-content: center;
 }
 
-/* Modal Content/Box */
 .modal__content {
     background-color: #fefefe;
     padding: 0rem 2rem 2rem 2rem;
@@ -105,6 +104,7 @@ a:hover {
     top: 0px;
     left: 0px;
     background-color: white;
+    z-index: 10;
 }
 
 .nav__links {
@@ -264,8 +264,6 @@ a:hover {
     font-weight: bold;
 }
 
-
-
 .projects {
     margin: 0rem 0rem 0rem 0rem;
 }
@@ -281,13 +279,53 @@ a:hover {
     column-gap: 1rem;
 }
 
-.projects__item-image {
-    max-width: 100%;
-    object-fit: contain;
-    align-self: center;
+.slider {
+    width: 100%;
+    position: relative;
+    margin: auto;
 }
 
-.projects__item-image:hover {
+.slider__prev, .slider__next{
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 1rem;
+    color: grey;
+    font-weight: bold;
+    font-size: 2rem;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.slider__prev:hover , .slider__next:hover {
+    text-decoration: none;
+}
+
+.slider__next {
+    right: 0;
+}
+
+.slider__item {
+    display: none;
+}
+
+.slider__idx {
+    color: #f2f2f2;
+    font-size: 1rem;
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.slider__img{
+    width: 100%;
+    object-fit: contain;
+}
+
+.slider__img:hover {
     cursor: pointer;
 }
 
