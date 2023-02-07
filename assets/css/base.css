@@ -61,7 +61,7 @@ a:hover {
     justify-content: center;
 }
 
-.modal__content {
+.modal__container {
     background-color: #fefefe;
     padding: 0rem 2rem 2rem 2rem;
     border: 1px solid #888;
@@ -85,10 +85,9 @@ a:hover {
   cursor: pointer;
 }
 
-.modal__img {
+.modal__body {
     max-width: 80vw;
     max-height: 80vh;
-    object-fit: contain;
 }
 
 .empty-line {
