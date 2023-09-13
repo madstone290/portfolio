@@ -5,6 +5,7 @@ import Stack from '@mui/material/Stack';
 import ButtonBase from '@mui/material/ButtonBase';
 import React, { useState } from 'react';
 import NavItemMenu from './NavItemMenu';
+import { NavItemInfo } from './NavItemInfo';
 
 interface NavItemProps {
     info: NavItemInfo;
