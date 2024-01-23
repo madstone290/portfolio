@@ -112,6 +112,7 @@ for (let index = 0; index < sliderManager.sliders.length; index++) {
 
         // 현재 슬라이더를 모달창에 복사 후 팝업
         const copiedSlider = slider.cloneNode(true);
+        console.log(copiedSlider);
         modal.setContent(copiedSlider);
         modal.closeCallback = () => {
             // callback 적용

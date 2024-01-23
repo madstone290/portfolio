@@ -34,10 +34,22 @@
     font-optical-sizing: auto;
 }
 
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     color: #495057;
     line-height: 1.5;
-    
+}
+
+main {
+    height: 100%;
+    overflow: auto;
 }
 
 a {
@@ -73,7 +85,7 @@ a:hover {
 
 .modal__container {
     background-color: #fefefe;
-    padding: 0rem 2rem 2rem 2rem;
+    padding: 0rem 0.5rem 0.5rem 0.5rem;
     border: 1px solid #888;
     width: fit-content;
     height: fit-content;
@@ -96,8 +108,9 @@ a:hover {
 }
 
 .modal__body {
-    max-width: 80vw;
-    max-height: 80vh;
+    max-width: 95vw;
+    max-height: 90vh;
+    overflow: auto;
 }
 
 .empty-line {
@@ -362,6 +375,11 @@ a:hover {
 
 .slider__img {
     width: 100%;
+    object-fit: contain;
+}
+
+.modal .slider__img {
+    width: fit-content;
     object-fit: contain;
 }
 
