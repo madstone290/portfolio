@@ -108,8 +108,8 @@ a:hover {
 }
 
 .modal__body {
-    max-width: 95vw;
-    max-height: 90vh;
+    max-width: 90vw;
+    max-height: 85vh;
     overflow: auto;
 }
 
