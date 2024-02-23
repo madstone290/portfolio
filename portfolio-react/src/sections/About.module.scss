@@ -1,0 +1,6 @@
+@import "@/CommonStyle.scss";
+
+.stopPoint {
+    position: relative;
+    top: -($headerHeight + 2rem);
+}
