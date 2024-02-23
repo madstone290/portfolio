@@ -1,3 +1,5 @@
+@import "@/Main.scss";
+
 html,
 body {
     margin: 0;
@@ -9,4 +11,5 @@ body {
 #root {
     height: 100%;
     width: 100%;
+    color: $textNormalColor;
 }

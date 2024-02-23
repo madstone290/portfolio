@@ -1,7 +1,13 @@
+@import "@/Main.scss";
+
 .layout {
     width: 100%;
     background-color: #0f172a;
-    color: white;
+    padding: 0 1rem;
+
+    @media screen and (min-width: $bpSmall) {
+        padding: 0 2rem;
+    }
 
     .content {
         width: 100%;

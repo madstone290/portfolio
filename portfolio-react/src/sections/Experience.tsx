@@ -26,7 +26,7 @@ function Experience() {
             {experienctList.map((experience, index) => (
                 <ExperienceCard key={index}
                     title={experience.title}
-                    duration={experience.date}
+                    date={experience.date}
                     description={experience.description}
                     tagList={["React", "TypeScript", "JavaScript", "HTML", "CSS"]}
                 />

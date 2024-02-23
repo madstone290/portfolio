@@ -1,0 +1,26 @@
+@import "@/Main.scss";
+
+.card {
+    padding: 0.5rem;
+    display: block;
+
+    @media screen and (min-width: $bpSmall) {
+        padding: 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .date {
+        flex: 0 0 auto;
+        width: 10rem;
+    }
+    .content {
+        .title {
+            color: $textPrimaryColor;
+            font-weight: bold;
+            padding: 1rem 0;
+        }
+    }
+}
