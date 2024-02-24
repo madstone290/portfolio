@@ -23,6 +23,15 @@
         .logo {
             height: 100%;
         }
+        .title {
+            padding: 0 1rem;
+            display: none;
+        }
+        @media screen and (min-width: $bpSmall) {
+            .title {
+                display: block;
+            }
+        }
     }
 
     .link {
@@ -38,6 +47,9 @@
         align-items: center;
 
         * {
+            margin: 0 0.5rem;
+        }
+        @media screen and (min-width: $bpSmall) {
             margin: 0 1rem;
         }
     }

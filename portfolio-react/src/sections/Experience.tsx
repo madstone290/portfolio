@@ -1,5 +1,7 @@
 import ExperienceCard from '@/components/experience-card/ExperienceCard';
 import css from './Experience.module.scss';
+import SectionTitle from '@/components/main-layout/SectionTitle';
+import SectionAnchor from '@/components/main-layout/SectionAnchor';
 
 export default Experience;
 function Experience() {
@@ -21,8 +23,8 @@ function Experience() {
 
     return (
         <div>
-            <div id="experience" className={css.stopPoint} />
-            <h2>Experience</h2>
+            <SectionAnchor sectionId="experience" />
+            <SectionTitle title="Experience" />
             {experienctList.map((experience, index) => (
                 <ExperienceCard key={index}
                     title={experience.title}
