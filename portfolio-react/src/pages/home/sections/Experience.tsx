@@ -1,7 +1,6 @@
 import ExperienceCard from '@/components/experience-card/ExperienceCard';
-import css from './Experience.module.scss';
-import SectionTitle from '@/components/main-layout/SectionTitle';
-import SectionAnchor from '@/components/main-layout/SectionAnchor';
+import Section from '@/components/main-layout/Section';
+import { SECTION_MAP } from '@/data/SectionList';
 
 export default Experience;
 function Experience() {
@@ -22,9 +21,7 @@ function Experience() {
     ];
 
     return (
-        <div>
-            <SectionAnchor sectionId="experience" />
-            <SectionTitle title="Experience" />
+        <Section id={SECTION_MAP.Experience.id} title={SECTION_MAP.Experience.title}>
             {experienctList.map((experience, index) => (
                 <ExperienceCard key={index}
                     title={experience.title}
@@ -33,6 +30,6 @@ function Experience() {
                     tagList={["React", "TypeScript", "JavaScript", "HTML", "CSS"]}
                 />
             ))}
-        </div>
+        </Section>
     )
 }

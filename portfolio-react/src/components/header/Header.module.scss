@@ -7,9 +7,10 @@
     justify-content: flex-start;
     align-items: center;
     flex-direction: row;
-    position: sticky;
+    position: fixed;
     top: 0;
-    background-color: inherit;
+    /* flashlight패널보다 앞에 위치하여 항상 보이도록 */
+    z-index: 2;
 
     .leftBar {
         flex: 1;
@@ -36,7 +37,26 @@
 
     .link {
         text-decoration: none;
-        color: #c4d1ec;
+        color: $textNormalColor;
+        font-weight: bold;
+        position: relative;
+
+        &:hover {
+            color: $textPrimaryColor;
+        }
+        &.active {
+            color: $textPrimaryColor;
+            &::before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 1px;
+                bottom: -0.5rem;
+                left: 0;
+                background-color: $textPrimaryColor;
+                border: 1px solid $textPrimaryColor;
+            }
+        }
     }
 
     .rightBar {
