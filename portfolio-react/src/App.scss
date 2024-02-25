@@ -21,25 +21,28 @@ body {
 #root {
     width: 100%;
     color: $textNormalColor;
-    background-color: #0f172a;
+    background-color: $backgroundColor;
 
     /* flashlight 패널 */
-    &:before {
-        content: "";
-        display: block;
-        width: 100%;
-        height: 100%;
-        position: fixed;
-        z-index: 1;
-        pointer-events: none;
-        background: radial-gradient(
-            circle 100vmax at var(--cursorX) var(--cursorY),
-            rgba(0, 0, 0, 0) 30%,
-            rgba(0, 0, 0, 0.1) 35%,
-            rgba(0, 0, 0, 0.5) 40%,
-            rgba(0, 0, 0, 0.9) 50%
-        );
+    @media (hover: hover) and (pointer: fine) {
+        &:before {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            z-index: 1;
+            pointer-events: none;
+            background: radial-gradient(
+                circle 100vmax at var(--cursorX) var(--cursorY),
+                rgba(0, 0, 0, 0) 30%,
+                rgba(0, 0, 0, 0.1) 35%,
+                rgba(0, 0, 0, 0.5) 40%,
+                rgba(0, 0, 0, 0.9) 50%
+            );
+        }
     }
+
     > * {
         cursor: default;
     }
