@@ -20,10 +20,19 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
     }
-    .row > * {
+
+    .row>* {
         margin: 0.2rem;
+    }
+
+    .showHideBtn {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        cursor: pointer;
     }
 }
 
@@ -62,11 +71,11 @@
         transition: 0.4s;
     }
 
-    input:checked + .slider {
+    input:checked+.slider {
         background-color: #2196f3;
     }
 
-    input:checked + .slider:before {
+    input:checked+.slider:before {
         -webkit-transform: translateX(2px);
         -ms-transform: translateX(26px);
         transform: translateX(26px);
@@ -75,6 +84,7 @@
 
 .rangeSlider {
     width: 50px;
+
     input {
         width: 100%;
         padding: 0;

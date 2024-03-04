@@ -41,7 +41,7 @@ export default function Home() {
         linksArray[currentSectionIndex].classList.add(homeCss.active);
 
         // context에 현재섹션 저장
-        appContext.selectSection(currentSection.id);
+        appContext.changeSelectedSection(currentSection.id);
     }
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
