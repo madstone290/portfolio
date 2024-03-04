@@ -6,7 +6,7 @@ import Project from "@/pages/home/sections/Project";
 import Intro from "@/pages/home/sections/Intro";
 import { useContext, useEffect } from "react";
 import { SECTION_MAP } from "@/data/SectionList";
-import { AppContext } from "@/App";
+import { AppContext } from "@/AppContextProvider";
 
 export default function Home() {
 

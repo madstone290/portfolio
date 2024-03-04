@@ -1,11 +1,11 @@
 import React from 'react';
 import css from './LightControl.module.scss';
-import { AppContext } from '@/App';
+import { AppContext } from '@/AppContextProvider';
 import { MdExpandMore } from "react-icons/md";
 import { MdExpandLess } from "react-icons/md";
 
 export default function LightControl() {
-    const [visible, setVisible] = React.useState(false);
+    const [visible, setVisible] = React.useState(true);
     const handleShowHide = () => {
         setVisible(!visible);
     }

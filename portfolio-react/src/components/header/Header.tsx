@@ -1,7 +1,7 @@
 import { SECTION_MAP } from '@/data/SectionList';
 import css from './Header.module.scss';
 import { useContext } from 'react';
-import { AppContext } from '@/App';
+import { AppContext } from '@/AppContextProvider';
 export default Header;
 function Header() {
     const title = '포트폴리오';

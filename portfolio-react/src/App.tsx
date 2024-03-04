@@ -2,7 +2,8 @@ import './App.scss'
 import MainRoutes from '@/MainRoutes'
 import { BrowserRouter } from 'react-router-dom'
 import React, { useEffect } from 'react';
-import Ripple from './components/ripple/Ripple';
+import Ripple from '@/components/ripple/Ripple';
+import AppContextProvider, { AppContext } from '@/AppContextProvider';
 
 function App() {
     const [ripples, setRipples] = React.useState<React.ReactNode[]>([]);
@@ -67,70 +68,5 @@ function FlashlightPanel(props: { children: React.ReactNode }) {
         <div className={appContext.flashlightOn ? 'flashlight' : ''}>
             {props.children}
         </div>
-    )
-}
-
-
-interface AppContextValue {
-
-    /**
-     * 현재 선택된 섹션의 id
-     */
-    selectedSectionId: string,
-
-    /**
-     * 현재 선택된 섹션을 변경합니다.
-     * @param sectionId 
-     * @returns 
-     */
-    changeSelectedSection: (sectionId: string) => void,
-
-
-    flashlightOn: boolean,
-
-    changeFlashLightOn: (isOn: boolean) => void,
-
-    lightBrightness: number,
-
-    changeLightBrightness: (brightness: number) => void
-}
-
-export const AppContext = React.createContext<AppContextValue>(undefined!);
-
-interface AppContextProviderProps {
-    children: React.ReactNode;
-}
-
-function AppContextProvider(props: AppContextProviderProps) {
-    const [selectedSectionId, setSelectedSection] = React.useState('');
-    const [flashlightOn, setFlashlightOn] = React.useState(true);
-    const [lightBrightness, setLightBrightness] = React.useState(5);
-
-    const selectSection = (section: string) => {
-        setSelectedSection(section);
-    }
-
-    const changeFlashLightOn = (isOn: boolean) => {
-        setFlashlightOn(isOn);
-    };
-
-    const changeLightBrightness = (brightness: number) => {
-        document.documentElement.style.setProperty('--lightBrightness', brightness.toString());
-        setLightBrightness(brightness);
-    };
-
-    const appContextValue: AppContextValue = {
-        selectedSectionId,
-        changeSelectedSection: selectSection,
-        flashlightOn,
-        changeFlashLightOn,
-        lightBrightness,
-        changeLightBrightness
-    }
-
-    return (
-        <AppContext.Provider value={appContextValue}>
-            {props.children}
-        </AppContext.Provider>
     )
 }
