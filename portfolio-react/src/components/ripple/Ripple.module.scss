@@ -1,3 +1,5 @@
+@import "@/Main.scss";
+
 .ripple {
     width: 100px;
     height: 100px;
@@ -6,7 +8,7 @@
     justify-content: center;
     align-items: center;
     position: fixed;
-    z-index: 5;
+    z-index: $zIndexRipple;
     pointer-events: none;
 
     .line {

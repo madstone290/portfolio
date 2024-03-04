@@ -9,7 +9,7 @@
     color: $textPrimaryColor;
     border-radius: 1rem;
     padding: 0.5rem;
-    z-index: 2;
+    z-index: $zIndexLightControl;
     display: none;
 
     @media (hover: hover) and (pointer: fine) {

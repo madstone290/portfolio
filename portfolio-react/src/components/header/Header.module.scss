@@ -11,7 +11,7 @@
     position: fixed;
     top: 0;
     /* flashlight패널보다 앞에 위치하여 항상 보이도록 */
-    z-index: 2;
+    z-index: $zIndexHeader;
     .leftBar {
         flex: 1;
         display: flex;

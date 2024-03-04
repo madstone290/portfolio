@@ -34,7 +34,7 @@ body {
                 width: 100%;
                 height: 100%;
                 position: fixed;
-                z-index: 1;
+                z-index: $zIndexFlashlight;
                 pointer-events: none;
                 // background: radial-gradient(circle 100vmax at var(--cursorX) var(--cursorY),
                 //         rgba(0, 0, 0, 0) 30%,
