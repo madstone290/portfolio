@@ -2,30 +2,44 @@ import './App.scss'
 import MainRoutes from '@/MainRoutes'
 import { BrowserRouter } from 'react-router-dom'
 import React, { useEffect } from 'react';
+import Ripple from './components/ripple/Ripple';
 
 function App() {
-    function handleMouseEvent(e: MouseEvent) {
-        let x = 0;
-        let y = 0;
-        x = e.clientX;
-        y = e.clientY;
-        document.documentElement.style.setProperty('--cursorX', x + 'px')
-        document.documentElement.style.setProperty('--cursorY', y + 'px')
+    const [ripples, setRipples] = React.useState<React.ReactNode[]>([]);
+    const countRef = React.useRef(0);
+
+    function addNewRipple(clientX: number, clientY: number) {
+        const listItemKey = countRef.current++;
+        ripples.push(<Ripple key={listItemKey} clientX={clientX} clientY={clientY} />);
+        setRipples([...ripples]);
+        setTimeout(() => {
+            ripples.shift();
+            setRipples([...ripples]);
+        }, 1200);
     }
 
-    function handleTouchEvent(e: TouchEvent) {
-        const x = e.touches[0].clientX;
-        const y = e.touches[0].clientY;
-        document.documentElement.style.setProperty('--cursorX', x + 'px')
-        document.documentElement.style.setProperty('--cursorY', y + 'px')
+    function handleMouseEvent(e: MouseEvent) {
+        const x = e.clientX;
+        const y = e.clientY;
+        document.documentElement.style.setProperty('--cursorX', x + 'px');
+        document.documentElement.style.setProperty('--cursorY', y + 'px');
+    }
+
+    function handleClickEvent(e: MouseEvent) {
+        const x = e.clientX;
+        const y = e.clientY;
+        document.documentElement.style.setProperty('--cursorX', x + 'px');
+        document.documentElement.style.setProperty('--cursorY', y + 'px');
+        addNewRipple(x, y);
     }
 
     useEffect(() => {
-        document.addEventListener('mousemove', handleMouseEvent)
-        document.addEventListener('touchmove', handleTouchEvent)
+        document.addEventListener('mousemove', handleMouseEvent);
+        document.addEventListener('click', handleClickEvent);
+
         return () => {
             document.removeEventListener('mousemove', handleMouseEvent)
-            document.removeEventListener('touchmove', handleTouchEvent)
+            document.removeEventListener('click', handleClickEvent)
         }
     }, []);
 
@@ -33,6 +47,7 @@ function App() {
     return (
         <>
             <AppContextProvider>
+                {ripples}
                 <FlashlightPanel>
                     <BrowserRouter>
                         <MainRoutes />
