@@ -11,7 +11,7 @@ export default function Intro() {
             <div className={css.description}>{description}</div>
             <div className={css.linkList}>
                 <a className={css.link} href='https://github.com/madstone290'
-                    target='_blank' title='깃허브로 이동'
+                    target='_blank' title='깃허브 가기'
                 ><FaGithub /></a>
                 <a className={css.link} href="mailto:madstone290@gmail.com"
                     title='이메일 보내기'

@@ -27,5 +27,17 @@
         .description {
             padding: 1rem 0;
         }
+
+        .link {
+            padding: 0 0.5rem;
+            font-size: 1.5rem;
+            color: $textNormalColor;
+            transition: color 0.3s;
+
+            &:hover {
+                color: $textPrimaryColor;
+            }
+        }
+
     }
 }
