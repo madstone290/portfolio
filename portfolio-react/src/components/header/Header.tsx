@@ -13,8 +13,10 @@ function Header() {
     return (
         <div className={css.header}>
             <div className={css.leftBar}>
-                <img className={css.logo} src="https://source.unsplash.com/random/80x80" />
-                <a href="/" className={css.link + " " + css.title}>{title}</a>
+                <a href="/" className={css.link}>
+                    <img className={css.logo} src="logo-white.png" />
+                    <span className={css.title}>{title}</span>
+                </a>
             </div>
 
             <div className={css.rightBar}>
