@@ -59,7 +59,6 @@ export default function Home() {
                     <Link href={"#" + SECTION_MAP.About.id} title={SECTION_MAP.About.title} />
                     <Link href={"#" + SECTION_MAP.Experience.id} title={SECTION_MAP.Experience.title} />
                     <Link href={"#" + SECTION_MAP.Project.id} title={SECTION_MAP.Project.title} />
-                    <Link href={"#" + SECTION_MAP.Contact.id} title={SECTION_MAP.Contact.title} />
                 </div>
             </div>
             <div>

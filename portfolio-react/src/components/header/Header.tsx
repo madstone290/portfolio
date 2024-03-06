@@ -23,7 +23,6 @@ function Header() {
                 <a href={"#" + SECTION_MAP.About.id} className={css.link + " " + getActiveClass(SECTION_MAP.About.id)} >{SECTION_MAP.About.title}</a>
                 <a href={"#" + SECTION_MAP.Experience.id} className={css.link + " " + getActiveClass(SECTION_MAP.Experience.id)}>{SECTION_MAP.Experience.title}</a>
                 <a href={"#" + SECTION_MAP.Project.id} className={css.link + " " + getActiveClass(SECTION_MAP.Project.id)} >{SECTION_MAP.Project.title}</a>
-                <a href={"#" + SECTION_MAP.Contact.id} className={css.link + " " + getActiveClass(SECTION_MAP.Contact.id)} >{SECTION_MAP.Contact.title}</a>
             </div>
         </div>
 

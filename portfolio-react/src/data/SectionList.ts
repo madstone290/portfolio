@@ -7,7 +7,6 @@ interface SectionMap {
     About: SectionInfo;
     Experience: SectionInfo;
     Project: SectionInfo;
-    Contact: SectionInfo;
 }
 
 export const SECTION_MAP: SectionMap = {
@@ -22,9 +21,5 @@ export const SECTION_MAP: SectionMap = {
     Project: {
         id: 'project',
         title: 'Project',
-    },
-    Contact: {
-        id: 'contact',
-        title: 'Contact',
     },
 };
