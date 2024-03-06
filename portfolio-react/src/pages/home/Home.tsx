@@ -50,7 +50,6 @@ export default function Home() {
         }
     }, []);
 
-
     return (
         <div className={homeCss.homePage}>
             <div className={homeCss.sidebar}>
@@ -66,7 +65,6 @@ export default function Home() {
                 <Experience />
                 <Project />
             </div>
-
         </div>
     )
 }

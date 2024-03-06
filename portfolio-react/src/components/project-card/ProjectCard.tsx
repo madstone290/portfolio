@@ -2,6 +2,7 @@ import TagBox from "@/components/tag-box/TagBox"
 import css from "./ProjectCard.module.scss"
 import { FaGithub } from "react-icons/fa";
 import { LuMoveUpRight } from "react-icons/lu";
+import { CiImageOn } from "react-icons/ci";
 
 interface ProjectCardProps {
     title: string;
@@ -9,17 +10,28 @@ interface ProjectCardProps {
     description: string;
     url?: string;
     github?: string;
+    imageList: string[];
     tagList: string[];
+    openModal?: () => void;
 }
 
 export default function ProjectCard(props: ProjectCardProps) {
-    const { title, date, description, tagList, url, github } = props;
+    const { title, date, description, tagList, url, github, imageList, openModal } = props;
     return (
         <div className={css.card}>
             <div className={css.date}>{date}</div>
             <div className={css.content}>
                 <div className={css.title}>{title}</div>
                 <div className={css.description}>{description}</div>
+                {imageList && 0 < imageList.length &&
+                    <a className={css.link}
+                        onClick={openModal}
+                        target='_blank'
+                        title='이미지 보기'
+                    >
+                        <CiImageOn />
+                    </a>
+                }
                 {url &&
                     <a className={css.link}
                         href={url}

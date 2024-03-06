@@ -1,3 +1,4 @@
+import { Box, Modal } from "@mui/material";
 import React from "react";
 
 
@@ -22,7 +23,7 @@ interface AppContext {
 
     lightBrightness: number,
 
-    changeLightBrightness: (brightness: number) => void
+    changeLightBrightness: (brightness: number) => void,
 }
 
 export const AppContext = React.createContext<AppContext>(undefined!);
@@ -55,7 +56,7 @@ export default function AppContextProvider(props: AppContextProviderProps) {
         flashlightOn,
         changeFlashLightOn,
         lightBrightness,
-        changeLightBrightness
+        changeLightBrightness,
     }
 
     return (

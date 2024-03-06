@@ -1,6 +1,9 @@
 import Section from "@/components/main-layout/Section";
 import ProjectCard from "@/components/project-card/ProjectCard";
 import { SECTION_MAP } from "@/data/SectionList";
+import { Modal } from "@mui/material";
+import React from "react";
+import css from "./Project.module.scss";
 
 export default Project;
 function Project() {
@@ -26,14 +29,21 @@ function Project() {
             github: "https://www.github.com"
         },
         {
-            title: "Front-end Developer",
-            company: "Company B",
-            date: "2019-2021",
-            description: "I worked",
+            title: "Sim 프린터",
+            date: "2022-2022",
+            description: `심프린터는 주문정보를 분석, 저장 및 출력하는 프로그램입니다.
+            시리얼 포트로 주문이 들어오면 프로그램이 주문을 분석하여 데이터베이스에 저장하고, 저장된 주문을 프린터로 출력합니다.
+            `,
             url: "111",
-            github: ""
+            github: "https://github.com/madstone290/SimPrinter",
+            imageList: ["https://via.placeholder.com/150", "https://via.placeholder.com/150", "https://via.placeholder.com/150"]
         },
     ];
+    const [open, setOpen] = React.useState(false);
+    const openModal = () => {
+        setOpen(true);
+    };
+
     return (
         <Section id={SECTION_MAP.Project.id} title={SECTION_MAP.Project.title}>
             {projectList.map((experience, index) => (
@@ -44,8 +54,19 @@ function Project() {
                     url={experience.url ?? ""}
                     github={experience.github ?? ""}
                     tagList={["React", "TypeScript", "JavaScript", "HTML", "CSS"]}
+                    imageList={experience.imageList ?? []}
+                    openModal={openModal}
                 />
             ))}
+            <Modal
+                className={css.modal}
+                open={open}
+                onClose={() => setOpen(false)}
+            >
+                <div className={css.content}>
+                    <h1>모달</h1>
+                </div>
+            </Modal>
         </Section>
     )
 }
