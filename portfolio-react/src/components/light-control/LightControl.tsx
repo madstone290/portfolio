@@ -21,14 +21,14 @@ export default function LightControl() {
             </div>
             {visible &&
                 <div className={css.row}>
-                    <div>라이트 효과</div>
+                    <div>손전등 효과</div>
                     <Switch />
                 </div>
             }
             {
                 visible &&
                 <div className={css.row}>
-                    <div>라이트 밝기</div>
+                    <div>손전등 밝기</div>
                     <RangeSlider />
                 </div>
             }
