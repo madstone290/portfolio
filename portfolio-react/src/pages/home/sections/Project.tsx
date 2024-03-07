@@ -2,31 +2,63 @@ import Section from "@/components/main-layout/Section";
 import ProjectCard from "@/components/project-card/ProjectCard";
 import { SECTION_MAP } from "@/data/SectionList";
 import { Modal } from "@mui/material";
-import React from "react";
+import React, { useCallback, useRef } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import css from "./Project.module.scss";
 import "./Project.scss";
 
+import { FaArrowRight } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
+
 import img1 from "@/assets/images/drawer-company2.png";
 import img2 from "@/assets/images/drawer-inventory1.png";
 import img3 from "@/assets/images/drawer-inventory2.png";
+import { AppContext } from "@/AppContextProvider";
 
 export default Project;
+
+interface ProjectInfo {
+    title: string;
+    company?: string;
+    date: string;
+    description: string;
+    url?: string;
+    github?: string;
+    imageList: { url: string, description: string }[];
+}
+
+
 function Project() {
-    const projectList = [
+
+    const projectList: ProjectInfo[] = [
         {
             title: "Software Engineer",
             company: "Company A",
             date: "2021-2022",
-            description: "I worked as a software engineer at Company A. I was responsible for developing and maintaining the company's web applications."
+            description: "I worked as a software engineer at Company A. I was responsible for developing and maintaining the company's web applications.",
+            imageList: [
+                {
+                    url: img1,
+                    description: "1번 사진"
+                },
+                {
+                    url: img2,
+                    description: "2번 사진"
+                },
+                {
+                    url: img3,
+                    description: "3번 사진"
+                }
+            ]
         },
         {
             title: "Front-end Developer",
             company: "Company B",
             date: "2019-2021",
             description: "I worked",
+            imageList: []
         },
         {
             title: "Software Engineer",
@@ -34,7 +66,8 @@ function Project() {
             date: "2021-2022",
             description: "I worked as a software engineer at Company A. I was responsible for developing and maintaining the company's web applications.",
             url: "https://www.naver.com",
-            github: "https://www.github.com"
+            github: "https://www.github.com",
+            imageList: []
         },
         {
             title: "Sim 프린터",
@@ -44,21 +77,58 @@ function Project() {
             `,
             url: "111",
             github: "https://github.com/madstone290/SimPrinter",
-            imageList: ["https://via.placeholder.com/150", "https://via.placeholder.com/150", "https://via.placeholder.com/150"]
+            imageList: [
+                {
+                    url: img1,
+                    description: "1번 사진"
+                },
+                {
+                    url: img2,
+                    description: "2번 사진"
+                },
+                {
+                    url: img3,
+                    description: "3번 사진"
+                }
+            ]
         },
     ];
+
+    const appContext = React.useContext(AppContext);
+    const slickRef = useRef<Slider>(null);
+    const [project, setProject] = React.useState(projectList[0]);
     const [open, setOpen] = React.useState(false);
-    const openModal = () => {
+    const openModal = (title: string) => {
+        const project = projectList.find(project => project.title === title);
+        if (!project)
+            return;
+
+        setProject(project);
         setOpen(true);
+        appContext.enableFlashlight(false);
     };
-    var settings = {
+
+    const onModalClose = () => {
+        setOpen(false);
+        appContext.enableFlashlight(true);
+    };
+
+    const onLeftArrowClick = useCallback(() => {
+        slickRef.current?.slickPrev();
+    }, []);
+
+    const onRightArrowClick = useCallback(() => {
+        slickRef.current?.slickNext();
+    }, []);
+
+    const slickSettings = {
         dots: true,
         infinite: true,
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
         className: css.slider,
-        // dotsClass: css.dots,
+        arrows: false,
     };
     return (
         <Section id={SECTION_MAP.Project.id} title={SECTION_MAP.Project.title}>
@@ -70,41 +140,31 @@ function Project() {
                     url={experience.url ?? ""}
                     github={experience.github ?? ""}
                     tagList={["React", "TypeScript", "JavaScript", "HTML", "CSS"]}
-                    imageList={experience.imageList ?? []}
-                    openModal={openModal}
+                    hasImage={0 < experience.imageList.length}
+                    openModal={() => openModal(experience.title)}
                 />
             ))}
-            <Modal
-                className={css.modal}
+            <Modal className={css.modal}
                 open={open}
-                onClose={() => setOpen(false)}
+                onClose={() => onModalClose()}
+                hideBackdrop={false}
             >
                 <div className={css.content}>
-                    <Slider {...settings}>
-                        <div className={css.item}>
-                            <div className={css.image}>
-                                <img src={img1} />
+                    <div className={css.leftArrow} onClick={onLeftArrowClick}><FaArrowLeft /></div>
+                    <div className={css.rightArrow} onClick={onRightArrowClick}><FaArrowRight /></div>
+                    <Slider ref={slickRef}
+                        {...slickSettings}
+                    >
+                        {project.imageList.map((image, index) => (
+                            <div className={css.item} key={index}>
+                                <div className={css.image}>
+                                    <img src={image.url} />
+                                </div>
+                                <div className={css.desc}>
+                                    {image.description}
+                                </div>
                             </div>
-                            <div className={css.desc}>
-                                1번 사진
-                            </div>
-                        </div>
-                        <div className={css.item}>
-                            <div className={css.image}>
-                                <img src={img2} />
-                            </div>
-                            <div className={css.desc}>
-                                2번 사진
-                            </div>
-                        </div>
-                        <div className={css.item}>
-                            <div className={css.image}>
-                                <img src={img3} />
-                            </div>
-                            <div className={css.desc}>
-                                3번 사진
-                            </div>
-                        </div>
+                        ))}
                     </Slider>
                 </div>
             </Modal>

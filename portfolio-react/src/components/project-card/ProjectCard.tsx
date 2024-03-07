@@ -10,13 +10,13 @@ interface ProjectCardProps {
     description: string;
     url?: string;
     github?: string;
-    imageList: string[];
+    hasImage: boolean;
     tagList: string[];
     openModal?: () => void;
 }
 
 export default function ProjectCard(props: ProjectCardProps) {
-    const { title, date, description, tagList, url, github, imageList, openModal } = props;
+    const { title, date, description, tagList, url, github, hasImage, openModal } = props;
     return (
         <div className={css.card}>
             <div className={css.date}>{date}</div>
@@ -31,7 +31,7 @@ export default function ProjectCard(props: ProjectCardProps) {
                     }
                 </a>
                 <div className={css.description}>{description}</div>
-                {imageList && 0 < imageList.length &&
+                {hasImage &&
                     <a className={css.link}
                         onClick={openModal}
                         target='_blank'

@@ -1,4 +1,3 @@
-import { Box, Modal } from "@mui/material";
 import React from "react";
 
 
@@ -21,6 +20,10 @@ interface AppContext {
 
     changeFlashLightOn: (isOn: boolean) => void,
 
+    flashlightEnabled: boolean,
+
+    enableFlashlight: (enable: boolean) => void,
+
     lightBrightness: number,
 
     changeLightBrightness: (brightness: number) => void,
@@ -34,10 +37,11 @@ interface AppContextProviderProps {
 
 export default function AppContextProvider(props: AppContextProviderProps) {
     const [selectedSectionId, setSelectedSection] = React.useState('');
+    const [flashlightEnabled, setFlashlightEnabled] = React.useState(true);
     const [flashlightOn, setFlashlightOn] = React.useState(true);
     const [lightBrightness, setLightBrightness] = React.useState(5);
 
-    const selectSection = (section: string) => {
+    const changeSelectedSection = (section: string) => {
         setSelectedSection(section);
     }
 
@@ -50,9 +54,15 @@ export default function AppContextProvider(props: AppContextProviderProps) {
         setLightBrightness(brightness);
     };
 
+    const enableFlashlight = (enable: boolean) => {
+        setFlashlightEnabled(enable);
+    };
+
     const appContextValue: AppContext = {
         selectedSectionId,
-        changeSelectedSection: selectSection,
+        changeSelectedSection,
+        flashlightEnabled,
+        enableFlashlight,
         flashlightOn,
         changeFlashLightOn,
         lightBrightness,

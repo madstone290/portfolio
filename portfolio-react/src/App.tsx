@@ -65,7 +65,7 @@ export default App;
 function FlashlightPanel(props: { children: React.ReactNode }) {
     const appContext = React.useContext(AppContext);
     return (
-        <div className={appContext.flashlightOn ? 'flashlight' : ''}>
+        <div className={appContext.flashlightEnabled && appContext.flashlightOn ? 'flashlight' : ''}>
             {props.children}
         </div>
     )
