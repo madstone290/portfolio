@@ -3,7 +3,15 @@ import ProjectCard from "@/components/project-card/ProjectCard";
 import { SECTION_MAP } from "@/data/SectionList";
 import { Modal } from "@mui/material";
 import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import css from "./Project.module.scss";
+import "./Project.scss";
+
+import img1 from "@/assets/images/drawer-company2.png";
+import img2 from "@/assets/images/drawer-inventory1.png";
+import img3 from "@/assets/images/drawer-inventory2.png";
 
 export default Project;
 function Project() {
@@ -43,7 +51,15 @@ function Project() {
     const openModal = () => {
         setOpen(true);
     };
-
+    var settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        className: css.slider,
+        // dotsClass: css.dots,
+    };
     return (
         <Section id={SECTION_MAP.Project.id} title={SECTION_MAP.Project.title}>
             {projectList.map((experience, index) => (
@@ -64,7 +80,32 @@ function Project() {
                 onClose={() => setOpen(false)}
             >
                 <div className={css.content}>
-                    <h1>모달</h1>
+                    <Slider {...settings}>
+                        <div className={css.item}>
+                            <div className={css.image}>
+                                <img src={img1} />
+                            </div>
+                            <div className={css.desc}>
+                                1번 사진
+                            </div>
+                        </div>
+                        <div className={css.item}>
+                            <div className={css.image}>
+                                <img src={img2} />
+                            </div>
+                            <div className={css.desc}>
+                                2번 사진
+                            </div>
+                        </div>
+                        <div className={css.item}>
+                            <div className={css.image}>
+                                <img src={img3} />
+                            </div>
+                            <div className={css.desc}>
+                                3번 사진
+                            </div>
+                        </div>
+                    </Slider>
                 </div>
             </Modal>
         </Section>
