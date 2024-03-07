@@ -21,7 +21,15 @@ export default function ProjectCard(props: ProjectCardProps) {
         <div className={css.card}>
             <div className={css.date}>{date}</div>
             <div className={css.content}>
-                <div className={css.title}>{title}</div>
+                <a className={css.title}
+                    href={url ? url : undefined}
+                    target='_blank'
+                >
+                    <span className={css.titleText}>{title}</span>
+                    {url &&
+                        <LuMoveUpRight className={css.titleLink} />
+                    }
+                </a>
                 <div className={css.description}>{description}</div>
                 {imageList && 0 < imageList.length &&
                     <a className={css.link}
@@ -32,15 +40,6 @@ export default function ProjectCard(props: ProjectCardProps) {
                         <CiImageOn />
                     </a>
                 }
-                {url &&
-                    <a className={css.link}
-                        href={url}
-                        target='_blank'
-                        title='웹사이트 가기'
-                    >
-                        <LuMoveUpRight />
-                    </a>
-                }
                 {github &&
                     <a className={css.link}
                         href={github}
@@ -48,6 +47,15 @@ export default function ProjectCard(props: ProjectCardProps) {
                         title='깃허브 가기'
                     >
                         <FaGithub />
+                    </a>
+                }
+                {url &&
+                    <a className={css.link}
+                        href={url}
+                        target='_blank'
+                        title='웹사이트 가기'
+                    >
+                        <LuMoveUpRight />
                     </a>
                 }
                 <TagBox tagList={tagList} />

@@ -21,8 +21,33 @@
         .title {
             color: $textPrimaryColor;
             font-weight: bold;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
             padding: 1rem 0;
+            text-decoration: none;
+
+            .titleText {
+                padding: 0 0.2rem;
+                font-size: 1.2rem;
+            }
+
+            .titleLink {
+                margin-top: 0.4rem;
+                font-size: 1rem;
+            }
+
+            &[href]:hover {
+                color: $linkColor;
+                .titleLink {
+                    margin-top: 0;
+                    font-size: 1.5rem;
+                }
+            }
         }
+
+
 
         .description {
             padding: 1rem 0;
