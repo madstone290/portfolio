@@ -12,8 +12,13 @@
     z-index: $zIndexLightControl;
     display: none;
 
+    /* 데스크톱 환경에서만 적용 */
     @media (hover: hover) and (pointer: fine) {
         display: block;
+    }
+
+    &:hover {
+        box-shadow: 0 0 10px 0.5px rgb(255, 255, 255);
     }
 
     .row {

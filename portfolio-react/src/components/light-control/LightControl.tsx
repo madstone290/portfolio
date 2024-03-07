@@ -5,7 +5,7 @@ import { MdExpandMore } from "react-icons/md";
 import { MdExpandLess } from "react-icons/md";
 
 export default function LightControl() {
-    const [visible, setVisible] = React.useState(true);
+    const [visible, setVisible] = React.useState(false);
     const handleShowHide = () => {
         setVisible(!visible);
     }
