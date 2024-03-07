@@ -9,13 +9,16 @@ import "slick-carousel/slick/slick-theme.css";
 import css from "./Project.module.scss";
 import "./Project.scss";
 
+import { AppContext } from "@/AppContextProvider";
 import { FaArrowRight } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa";
 
 import img1 from "@/assets/images/drawer-company2.png";
 import img2 from "@/assets/images/drawer-inventory1.png";
 import img3 from "@/assets/images/drawer-inventory2.png";
-import { AppContext } from "@/AppContextProvider";
+
+
+import simPrinterImg from "@/assets/images/simprinter.png";
 
 export default Project;
 
@@ -79,16 +82,8 @@ function Project() {
             github: "https://github.com/madstone290/SimPrinter",
             imageList: [
                 {
-                    url: img1,
-                    description: "1번 사진"
-                },
-                {
-                    url: img2,
-                    description: "2번 사진"
-                },
-                {
-                    url: img3,
-                    description: "3번 사진"
+                    url: simPrinterImg,
+                    description: "[1]. 주문현황\n주문이 들어오면 주문정보를 분석 후 저장 및 라벨을 발행합니다."
                 }
             ]
         },
