@@ -20,7 +20,7 @@
         height: 70%;
     }
 
-    .content {
+    .sliderContainer {
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -83,32 +83,40 @@
                 font-size: 1.5rem;
             }
         }
-    }
 
-    .slider {
-        width: 100%;
-        height: 100%;
-        color: $textPrimaryColor;
-        background-color: $backgroundColor;
-        background-color: transparent;
-
-        .item {
+        .slider {
             width: 100%;
             height: 100%;
+            color: $textPrimaryColor;
+            background-color: $backgroundColor;
+            background-color: transparent;
 
-            .image {
+            .item {
                 width: 100%;
+                height: 100%;
 
-                img {
+                .image {
                     width: 100%;
-                    height: 100%;
-                    object-fit: contain;
-                }
-            }
 
-            .desc {
-                background-color: $backgroundColor;
-                padding: 1rem;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    }
+                }
+
+                .text {
+                    background-color: $backgroundColor;
+                    padding: 0.5rem;
+
+                    .number {
+                        float: right;
+                    }
+
+                    .desc {
+                        color: $textNormalColor;
+                    }
+                }
             }
         }
     }

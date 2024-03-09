@@ -22,6 +22,12 @@ import simPrinterImg from "@/assets/images/simprinter.png";
 
 export default Project;
 
+interface ImageInfo {
+    url: string;
+    name: string;
+    description: string;
+}
+
 interface ProjectInfo {
     title: string;
     company?: string;
@@ -29,7 +35,7 @@ interface ProjectInfo {
     description: string;
     url?: string;
     github?: string;
-    imageList: { url: string, description: string }[];
+    imageList: ImageInfo[];
 }
 
 
@@ -44,14 +50,17 @@ function Project() {
             imageList: [
                 {
                     url: img1,
+                    name: "사진1",
                     description: "1번 사진"
                 },
                 {
                     url: img2,
+                    name: "사진2",
                     description: "2번 사진"
                 },
                 {
                     url: img3,
+                    name: "사진3",
                     description: "3번 사진"
                 }
             ]
@@ -83,14 +92,14 @@ function Project() {
             imageList: [
                 {
                     url: simPrinterImg,
-                    description: "[1]. 주문현황\n주문이 들어오면 주문정보를 분석 후 저장 및 라벨을 발행합니다."
+                    name: "주문현황",
+                    description: "주문이 들어오면 주문정보를 분석 후 저장 및 라벨을 발행합니다."
                 }
             ]
         },
     ];
 
     const appContext = React.useContext(AppContext);
-    const slickRef = useRef<Slider>(null);
     const [project, setProject] = React.useState(projectList[0]);
     const [open, setOpen] = React.useState(false);
     const openModal = (title: string) => {
@@ -108,23 +117,6 @@ function Project() {
         appContext.enableFlashlight(true);
     };
 
-    const onLeftArrowClick = useCallback(() => {
-        slickRef.current?.slickPrev();
-    }, []);
-
-    const onRightArrowClick = useCallback(() => {
-        slickRef.current?.slickNext();
-    }, []);
-
-    const slickSettings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        className: css.slider,
-        arrows: false,
-    };
     return (
         <Section id={SECTION_MAP.Project.id} title={SECTION_MAP.Project.title}>
             {projectList.map((experience, index) => (
@@ -144,25 +136,97 @@ function Project() {
                 onClose={() => onModalClose()}
                 hideBackdrop={false}
             >
-                <div className={css.content}>
-                    <div className={css.leftArrow} onClick={onLeftArrowClick}><FaArrowLeft /></div>
-                    <div className={css.rightArrow} onClick={onRightArrowClick}><FaArrowRight /></div>
-                    <Slider ref={slickRef}
-                        {...slickSettings}
-                    >
-                        {project.imageList.map((image, index) => (
-                            <div className={css.item} key={index}>
-                                <div className={css.image}>
-                                    <img src={image.url} />
-                                </div>
-                                <div className={css.desc}>
-                                    {image.description}
-                                </div>
-                            </div>
-                        ))}
-                    </Slider>
+                <div>
+                    <SliderWrapper project={project} />
                 </div>
             </Modal>
-        </Section>
+        </Section >
     )
+}
+
+function SliderWrapper(props: { project: ProjectInfo }) {
+    const { project } = props;
+    const slickRef = useRef<Slider>(null);
+
+    const [currentSlide, setCurrentSlide] = React.useState(0);
+
+    const onLeftArrowClick = useCallback(() => {
+        slickRef.current?.slickPrev();
+    }, []);
+
+    const onRightArrowClick = useCallback(() => {
+        slickRef.current?.slickNext();
+    }, []);
+
+    return (
+        <div className={css.sliderContainer}>
+            {currentSlide !== 0 &&
+                <div className={css.leftArrow} onClick={onLeftArrowClick}><FaArrowLeft /></div>
+            }
+            {currentSlide !== project.imageList.length - 1 &&
+                <div className={css.rightArrow} onClick={onRightArrowClick}><FaArrowRight /></div>
+            }
+            {/* 슬라이드 이미지가 1장일 때 react-slick 라이브러리에서 이미지가 아래로 중복되는 버그가 있음.
+            이미지가 1장일 때는 슬라이드를 사용하지 않고 이미지만 보여줌.
+            */}
+            {project.imageList.length === 1 &&
+                <div className={css.slider}>
+                    <SlideImage image={project.imageList[0]} index={0} count={1} />
+                </div>
+            }
+            {project.imageList.length > 1 &&
+                <Slider ref={slickRef}
+                    afterChange={(current) => setCurrentSlide(current)}
+                    dots={true}
+                    infinite={false}
+                    speed={500}
+                    slidesToShow={1}
+                    slidesToScroll={1}
+                    className={css.slider}
+                    arrows={false}
+                >
+                    {project.imageList.map((image, index) => (
+                        <SlideImage key={index} image={image} index={index} count={project.imageList.length} />
+                    ))}
+                </Slider>
+            }
+        </div>
+    );
+}
+
+interface SlideImageProps {
+    /**
+     * 이미지 정보
+     */
+    image: ImageInfo;
+
+    /**
+     * 현재 이미지 인덱스
+     */
+    index: number;
+
+    /**
+     * 전체 이미지 갯수
+     */
+    count: number;
+}
+
+function SlideImage(props: SlideImageProps) {
+    const { image, index, count } = props;
+    return (
+        <div className={css.item} key={index}>
+            <div className={css.image}>
+                <img src={image.url} />
+            </div>
+            <div className={css.text}>
+                <div>
+                    <span className={css.name}>{image.name}</span>
+                    <span className={css.number}>{`${index + 1}/${count} `}</span>
+                </div>
+                <div className={css.desc}>
+                    {image.description}
+                </div>
+            </div>
+        </div>
+    );
 }
