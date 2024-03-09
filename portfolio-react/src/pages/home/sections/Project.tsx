@@ -13,11 +13,18 @@ import { AppContext } from "@/AppContextProvider";
 import { FaArrowRight } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa";
 
-import img1 from "@/assets/images/drawer-company2.png";
-import img2 from "@/assets/images/drawer-inventory1.png";
-import img3 from "@/assets/images/drawer-inventory2.png";
+import bridgeImgAdd from "@/assets/images/bridge-add.png";
+import bridgeImgAdminPlace from "@/assets/images/bridge-admin-place.png";
+import bridgeImgSearchPlace from "@/assets/images/bridge-search-place.png";
+import bridgeImgSearchProduct from "@/assets/images/bridge-search-product.png";
 
-
+import drawerImgMain from "@/assets/images/drawer-main.gif";
+import drawerImgCompany1 from "@/assets/images/drawer-company1.png";
+import drawerImgCompany2 from "@/assets/images/drawer-company2.png";
+import drawerImgInventory1 from "@/assets/images/drawer-inventory1.png";
+import drawerImgLayout from "@/assets/images/drawer-layout.png";
+import drawerImgReceiptBatchAdd from "@/assets/images/drawer-receipt-batchadd.png";
+import drawerImgReceipt from "@/assets/images/drawer-receipt.png";
 import simPrinterImg from "@/assets/images/simprinter.png";
 
 export default Project;
@@ -48,38 +55,86 @@ function Project() {
             date: "2021-2022",
             description: "I worked as a software engineer at Company A. I was responsible for developing and maintaining the company's web applications.",
             imageList: [
-                {
-                    url: img1,
-                    name: "사진1",
-                    description: "1번 사진"
-                },
-                {
-                    url: img2,
-                    name: "사진2",
-                    description: "2번 사진"
-                },
-                {
-                    url: img3,
-                    name: "사진3",
-                    description: "3번 사진"
-                }
             ]
         },
         {
-            title: "Front-end Developer",
-            company: "Company B",
-            date: "2019-2021",
-            description: "I worked",
-            imageList: []
+            title: "브릿지 지도",
+            date: "2022-2022",
+            description: `장소 및 제품을 공유하는 지도 서비스입니다. 
+                사용자는 지도에 장소를 등록하고, 등록된 장소에 제품을 등록할 수 있습니다. 
+                등록된 장소와 제품은 다른 사용자들과 공유할 수 있습니다.
+            `,
+            github: "https://github.com/madstone290/Bridge",
+            imageList: [
+                {
+                    url: bridgeImgAdd,
+                    name: "장소등록",
+                    description: "장소를 등록합니다. 등록된 장소는 지도에 표시됩니다"
+                },
+                {
+                    url: bridgeImgAdminPlace,
+                    name: "관리자페이지",
+                    description: "관리자페이지에서 장소 및 제품을 관리할 수 있습니다."
+                },
+                {
+                    url: bridgeImgSearchPlace,
+                    name: "장소검색",
+                    description: "장소를 검색합니다. 거리순으로 정렬하여 가까운 장소부터 표시됩니다"
+                },
+                {
+                    url: bridgeImgSearchProduct,
+                    name: "제품검색",
+                    description: "제품을 검색합니다. 제품 정보 및 위치를 확인할 수 있습니다."
+                },
+
+            ]
         },
         {
-            title: "Software Engineer",
-            company: "Company A",
-            date: "2021-2022",
-            description: "I worked as a software engineer at Company A. I was responsible for developing and maintaining the company's web applications.",
-            url: "https://www.naver.com",
-            github: "https://www.github.com",
-            imageList: []
+            title: "드로어 인벤토리",
+            date: "2022-2022",
+            description: `드로어 인벤토리는 재고 관리 프로그램입니다. 
+                재고위치를 캔버스로 표현하여 사용자가 재고위치를 직관적으로 확인할 수 있습니다. 
+                재고위치는 계층적으로 표현되어 있어 사용자가 원하는 위치를 쉽게 찾을 수 있습니다.
+                엑셀 업로드 및 다운로드를 지원하여 사용자가 쉽게 데이터를 관리할 수 있습니다.
+                `,
+            github: "https://github.com/madstone290/Drawer",
+            imageList: [
+                {
+                    url: drawerImgMain,
+                    name: "재고확인",
+                    description: "아이템의 수량 및 재고 위치를 확인할 수 있습니다."
+                },
+                {
+                    url: drawerImgCompany1,
+                    name: "회사등록",
+                    description: "회사를 생성하거나 다른 회사에 가입할 수 있습니다."
+                },
+                {
+                    url: drawerImgCompany2,
+                    name: "회사관리",
+                    description: "회사 관리메뉴입니다. 구성원을 추가하거나 회사 정보를 수정할 수 있습니다."
+                },
+                {
+                    url: drawerImgInventory1,
+                    name: "재고위치",
+                    description: "재고수량을 위치별로 확인할 수 있습니다"
+                },
+                {
+                    url: drawerImgLayout,
+                    name: "레이아웃 등록",
+                    description: "레이아웃을 등록하거나 수정할 수 있습니다. 재고 위치를 캔버스로 ㅍ현하여 사용자가 직관적으로 확인할 수 있습니다."
+                },
+                {
+                    url: drawerImgReceiptBatchAdd,
+                    name: "일괄추가",
+                    description: "엑셀파일을 업로드하여 재고를 일괄 추가할 수 있습니다."
+                },
+                {
+                    url: drawerImgReceipt,
+                    name: "입고내역",
+                    description: "아이템 입고내역을 확인할 수 있습니다."
+                }
+            ]
         },
         {
             title: "Sim 프린터",
@@ -87,7 +142,6 @@ function Project() {
             description: `심프린터는 주문정보를 분석, 저장 및 출력하는 프로그램입니다.
             시리얼 포트로 주문이 들어오면 프로그램이 주문을 분석하여 데이터베이스에 저장하고, 저장된 주문을 프린터로 출력합니다.
             `,
-            url: "111",
             github: "https://github.com/madstone290/SimPrinter",
             imageList: [
                 {

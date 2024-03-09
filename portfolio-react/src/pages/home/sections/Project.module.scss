@@ -6,18 +6,18 @@
     margin: auto;
 
     @media screen and (min-width: $bpSmall) {
-        width: $bpSmall - 50px;
-        height: 70%;
+        width: 560px;
+        height: 60%;
     }
 
     @media screen and (min-width: $bpMedium) {
-        width: $bpMedium - 50px;
+        width: 720px;
         height: 70%;
     }
 
     @media screen and (min-width: $bpLarge) {
-        width: $bpLarge - 50px;
-        height: 70%;
+        width: 960px;
+        height: 80%;
     }
 
     .sliderContainer {
@@ -89,7 +89,6 @@
             height: 100%;
             color: $textPrimaryColor;
             background-color: $backgroundColor;
-            background-color: transparent;
 
             .item {
                 width: 100%;
@@ -97,6 +96,20 @@
 
                 .image {
                     width: 100%;
+                    background-color: $backgroundColor;
+
+                    /* 1.6대 1비율에 맞춰 이미지 높이 변경 */
+                    @media screen and (min-width: $bpSmall) {
+                        height: 350px;
+                    }
+
+                    @media screen and (min-width: $bpMedium) {
+                        height: 450px;
+                    }
+
+                    @media screen and (min-width: $bpLarge) {
+                        height: 600px;
+                    }
 
                     img {
                         width: 100%;
