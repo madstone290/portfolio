@@ -43,6 +43,7 @@ interface ProjectInfo {
     url?: string;
     github?: string;
     imageList: ImageInfo[];
+    tagList: string[];
 }
 
 
@@ -50,21 +51,16 @@ function Project() {
 
     const projectList: ProjectInfo[] = [
         {
-            title: "Software Engineer",
-            company: "Company A",
-            date: "2021-2022",
-            description: "I worked as a software engineer at Company A. I was responsible for developing and maintaining the company's web applications.",
-            imageList: [
-            ]
-        },
-        {
             title: "브릿지 지도",
             date: "2022-2022",
             description: `장소 및 제품을 공유하는 지도 서비스입니다. 
                 사용자는 지도에 장소를 등록하고, 등록된 장소에 제품을 등록할 수 있습니다. 
                 등록된 장소와 제품은 다른 사용자들과 공유할 수 있습니다.
+                Asp.Net Core/Blaozr를 사용하여 개발하였고 지도는 Naver Map API를 사용하였습니다.
+                또한 Github Actions를 사용하여 CI/CD를 구축하였습니다.
             `,
             github: "https://github.com/madstone290/Bridge",
+            tagList: ["C#", "Github Actions", "Postgresql", "Javascript", "Asp.net core", "Blazor", "Docker", "Naver Map API"],
             imageList: [
                 {
                     url: bridgeImgAdd,
@@ -86,7 +82,6 @@ function Project() {
                     name: "제품검색",
                     description: "제품을 검색합니다. 제품 정보 및 위치를 확인할 수 있습니다."
                 },
-
             ]
         },
         {
@@ -96,8 +91,10 @@ function Project() {
                 재고위치를 캔버스로 표현하여 사용자가 재고위치를 직관적으로 확인할 수 있습니다. 
                 재고위치는 계층적으로 표현되어 있어 사용자가 원하는 위치를 쉽게 찾을 수 있습니다.
                 엑셀 업로드 및 다운로드를 지원하여 사용자가 쉽게 데이터를 관리할 수 있습니다.
+                Asp.Net Core와 Blazor를 사용하여 개발하였으며, Github Actions를 사용하여 CI/CD를 구축하였습니다.
                 `,
             github: "https://github.com/madstone290/Drawer",
+            tagList: ["C#", "Github Actions", "Postgresql", "Javascript", "Asp.net core", "Blazor", "Docker"],
             imageList: [
                 {
                     url: drawerImgMain,
@@ -143,6 +140,7 @@ function Project() {
             시리얼 포트로 주문이 들어오면 프로그램이 주문을 분석하여 데이터베이스에 저장하고, 저장된 주문을 프린터로 출력합니다.
             `,
             github: "https://github.com/madstone290/SimPrinter",
+            tagList: ["C#", "Winform", "Serial Port"],
             imageList: [
                 {
                     url: simPrinterImg,
@@ -180,7 +178,7 @@ function Project() {
                     description={experience.description}
                     url={experience.url ?? ""}
                     github={experience.github ?? ""}
-                    tagList={["React", "TypeScript", "JavaScript", "HTML", "CSS"]}
+                    tagList={experience.tagList}
                     hasImage={0 < experience.imageList.length}
                     openModal={() => openModal(experience.title)}
                 />
