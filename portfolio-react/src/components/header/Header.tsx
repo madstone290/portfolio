@@ -21,6 +21,7 @@ function Header() {
 
             <div className={css.rightBar}>
                 <a href={"#" + SECTION_MAP.About.id} className={css.link + " " + getActiveClass(SECTION_MAP.About.id)} >{SECTION_MAP.About.title}</a>
+                <a href={"#" + SECTION_MAP.Career.id} className={css.link + " " + getActiveClass(SECTION_MAP.Career.id)} >{SECTION_MAP.Career.title}</a>
                 <a href={"#" + SECTION_MAP.Experience.id} className={css.link + " " + getActiveClass(SECTION_MAP.Experience.id)}>{SECTION_MAP.Experience.title}</a>
                 <a href={"#" + SECTION_MAP.Project.id} className={css.link + " " + getActiveClass(SECTION_MAP.Project.id)} >{SECTION_MAP.Project.title}</a>
             </div>

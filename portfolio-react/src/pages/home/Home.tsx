@@ -7,6 +7,7 @@ import Intro from "@/pages/home/sections/Intro";
 import { useContext, useEffect } from "react";
 import { SECTION_MAP } from "@/data/SectionList";
 import { AppContext } from "@/AppContextProvider";
+import Career from "./sections/Career";
 
 export default function Home() {
 
@@ -56,12 +57,14 @@ export default function Home() {
                 <Intro />
                 <div className={homeCss.linkList}>
                     <Link href={"#" + SECTION_MAP.About.id} title={SECTION_MAP.About.title} />
+                    <Link href={"#" + SECTION_MAP.Career.id} title={SECTION_MAP.Career.title} />
                     <Link href={"#" + SECTION_MAP.Experience.id} title={SECTION_MAP.Experience.title} />
                     <Link href={"#" + SECTION_MAP.Project.id} title={SECTION_MAP.Project.title} />
                 </div>
             </div>
             <div>
                 <About />
+                <Career />
                 <Experience />
                 <Project />
             </div>
