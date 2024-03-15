@@ -14,6 +14,39 @@ function Experience() {
 
     const experienctList: ExperienceInfo[] = [
         {
+            title: "SCM 웹 개발",
+            date: "2024-2024",
+            description: `
+            스프링부트를 사용하여 SCM 시스템을 개발하였습니다. 사용자의 입력 편의성을 위해 다양한 기능을 추가하였습니다.
+        `,
+            tagList: ["Java", "Springboot", "Maria DB", "Javascript"]
+        },
+        {
+            title: "생산 모니터링 웹 개발",
+            date: "2023-2024",
+            description: `
+            생산 모니터링을 위한 웹 시스템을 개발하였습니다.
+            공정 내역, 불량 내역, 비가동 현황 등 다양한 정보를 차트로 시각화하여 제공하였습니다.
+        `,
+            tagList: ["C#", "Asp.Net Core", "Typescript", "Oracle"]
+        },
+        {
+            title: "품질관리 시스템 개발",
+            date: "2023-2023",
+            description: `
+            품질관리를 위한 웹 시스템을 개발하였습니다. 품질 이상 발생 시 실시간으로 알림을 제공하였습니다.
+        `,
+            tagList: ["C#", "Asp.Net Core", "Typescript", "Oracle"]
+        },
+        {
+            title: "PLC 통신 프로그램 개발",
+            date: "2023-2023",
+            description: `
+            미쯔비시 PLC 데이터 수집 및 제어 프로그램을 개발하였습니다. 설정을 통해 다양한 방식으로 데이터를 수집할 수 있도록 하였습니다.
+        `,
+            tagList: ["C#", "Winform"]
+        },
+        {
             title: "MES 프로그램 개발",
             date: "2020-2021",
             description: `

@@ -51,6 +51,32 @@ function Project() {
 
     const projectList: ProjectInfo[] = [
         {
+            title: "플럼 차트",
+            date: "2023-2023",
+            description: `
+            타입스크립트를 이용한 타임라인 차트 라이브러리입니다. 시간에 따른 데이터를 차트로 표현할 수 있습니다.
+            가상화 리스트와 이벤트 그룹화 등을 사용하여 대용량 데이터를 표현할 수 있습니다.
+            확대/축소 및 드래그를 지원하여 사용자가 원하는 시간대의 데이터를 확인할 수 있습니다.
+            `,
+            github: "https://github.com/madstone290/lib-plum-chart",
+            tagList: ["Typescript"],
+            url: "https://madstone290.github.io/PlumChart/",
+            imageList: [
+            ]
+        },
+        {
+            title: "토글 드로어 메뉴",
+            date: "2023-2023",
+            description: `
+            자바스크립트 드로어 메뉴 라이브러리입니다. 축소/일반 상태를 토글하여 메뉴를 다르게 표시할 수 있습니다.
+                `,
+            github: "https://github.com/madstone290/lib-t-drawer",
+            tagList: ["Typescript"],
+            url: "https://madstone290.github.io/TDrawer/",
+            imageList: [
+            ]
+        },
+        {
             title: "브릿지 지도",
             date: "2022-2022",
             description: `장소 및 제품을 공유하는 지도 서비스입니다. 

@@ -33,7 +33,7 @@ const careerList: CareerInfo[] = [
         company: "JS System",
         date: "2023-현재",
         duties: [
-            "신규 시스템 설계 및 구현",
+            "다양한 웹 애플리케이션을 개발하고 있습니다."
         ],
         homepage: "http://js-system.co.kr/",
         techStack: ["C#", "Oracle", "Maria DB", "Asp.Net Core", "DevExpress", "Java", "Springboot", "Winform"]
@@ -42,8 +42,9 @@ const careerList: CareerInfo[] = [
         company: "PDM Tech",
         date: "2016-2021",
         duties: [
-            "신규 시스템 설계 및 구현",
-            "기존 시스템 유지보수",
+            `윈도우용 POP/MES 프로그램과 PLC 및 시리얼 장비의 통신 프로그램을 개발하였습니다.
+            
+            `
         ],
         homepage: "http://www.pdmtech.co.kr/",
         techStack: ["C#", "MS SQL", "Winform", "DevExpress", "Socket", "Asp.Net Core", "Rest API", "Andoroid", "Java"]
