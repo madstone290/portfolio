@@ -51,6 +51,17 @@ function Project() {
 
     const projectList: ProjectInfo[] = [
         {
+            title: "포트폴리오",
+            date: "2024-2024",
+            description: `
+            리액트를 사용하여 포트폴리오 웹사이트를 제작하였습니다.
+            `,
+            github: "https://github.com/madstone290/portfolio",
+            tagList: ["React", "Typescript"],
+            url: "https://portfolio.mad290.com/",
+            imageList: []
+        },
+        {
             title: "플럼 차트",
             date: "2023-2023",
             description: `
