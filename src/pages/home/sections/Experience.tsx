@@ -68,7 +68,7 @@ function Experience() {
             사출기 및 주변 장비의 제어가 가능하도록 하였습니다.
             시스템 설계 및 구현을 담당하였습니다.
         `,
-            tagList: ["C#", "MS SQL", "Winform", "Socket", "Serial Port", "PLC", "Modbus", "LS산전", "화낙", "우진"]
+            tagList: ["C#", "MS SQL", "Winform", "Socket", "PLC", "Modbus"]
         },
         {
             title: "사출기 종합 관제 시스템 개발",
@@ -89,7 +89,7 @@ function Experience() {
                 설비의 현재 상태를 실시간으로 모니터링 하기 위한 프로그램을 관리하였습니다.
                 잘못된 소켓 사용으로 인한 메모리 누수 버그를 수정하였으며 다양한 신규장비의 프로토콜을 추가하였습니다.
             `,
-            tagList: ["C#", "MS SQL", "Winform", "Serial Port", "Socket"]
+            tagList: ["C#", "MS SQL", "Winform", "Socket"]
         },
         {
             title: "POP 프로그램 개발 및 유지보수",
@@ -98,7 +98,7 @@ function Experience() {
                 제조 현장에서 사용하는 POP프로그램의 유지보수 및 신규 개발을 담당했습니다.
                 시리얼 통신을 사용하여 다양한 측정 장비와 연동하였습니다. 또한 UI 개선 및 사용자 커스터마이징 기능을 추가하여 편의성을 높였습니다.
             `,
-            tagList: ["C#", "MS SQL", "Winform", "DevExpress", "Serial Port"]
+            tagList: ["C#", "MS SQL", "Winform", "DevExpress"]
         },
     ];
 

@@ -97,7 +97,7 @@ function Project() {
                 또한 Github Actions를 사용하여 CI/CD를 구축하였습니다.
             `,
             github: "https://github.com/madstone290/Bridge",
-            tagList: ["C#", "Github Actions", "Postgresql", "Javascript", "Asp.net core", "Blazor", "Docker", "Naver Map API"],
+            tagList: ["C#", "Github Actions", "Postgresql", "Javascript", "Asp.net core", "Blazor", "Docker"],
             imageList: [
                 {
                     url: bridgeImgAdd,
@@ -177,7 +177,7 @@ function Project() {
             시리얼 포트로 주문이 들어오면 프로그램이 주문을 분석하여 데이터베이스에 저장하고, 저장된 주문을 프린터로 출력합니다.
             `,
             github: "https://github.com/madstone290/SimPrinter",
-            tagList: ["C#", "Winform", "Serial Port"],
+            tagList: ["C#", "Winform"],
             imageList: [
                 {
                     url: simPrinterImg,
