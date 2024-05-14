@@ -27,6 +27,11 @@ import drawerImgReceiptBatchAdd from "@/assets/images/drawer-receipt-batchadd.pn
 import drawerImgReceipt from "@/assets/images/drawer-receipt.png";
 import simPrinterImg from "@/assets/images/simprinter.png";
 
+import citiyBuilderControlGif from "@/assets/images/city-builder-control.gif";
+import citiyBuilderSimulationGif from "@/assets/images/city-builder-simulation.png";
+import helixGalleryGif from "@/assets/images/helix-gallery.gif";
+
+
 export default Project;
 
 interface ImageInfo {
@@ -50,6 +55,47 @@ interface ProjectInfo {
 function Project() {
 
     const projectList: ProjectInfo[] = [
+        {
+            title: "Three JS 이미지 갤러리",
+            date: "2024-05 ~ 2024-05",
+            description: `
+            Three JS 3D 라이브러리를 사용하여 만든 이미지 갤러리입니다.
+            나선형으로 배치된 이미지를 순서대로 감상할 수 있습니다.
+            `,
+            github: "https://github.com/madstone290/madstone290.github.io/tree/master/THREE",
+            tagList: ["Typescript", "Three JS", "3D"],
+            url: "https://madstone290.github.io/THREE/src/css3d-helix/",
+            imageList: [
+                {
+                    url: helixGalleryGif,
+                    name: "감상하기",
+                    description: "3D 공간에서 감상할 수 있습니다"
+                }
+            ]
+        },
+        {
+            title: "Three JS 도시건설",
+            date: "2024-04 ~ 2024-04",
+            description: `
+            Three JS 3D 라이브러리를 사용하여 만든 도시건설 시뮬레이션입니다.
+            건물을 추가하고 업그레이드 하여 점수를 획득하는 게임입니다.
+            `,
+            github: "https://github.com/madstone290/Three-SimCityLike",
+            tagList: ["Typescript", "Three JS", "3D"],
+            url: "https://madstone290.github.io/CityBuilder/",
+            imageList: [
+                {
+                    url: citiyBuilderControlGif,
+                    name: "컨트롤 모드",
+                    description: "마우스로 건물을 추가하거나 업그레이드 할 수 있습니다"
+                },
+                {
+                    url: citiyBuilderSimulationGif,
+                    name: "시뮬레이션 모드",
+                    description: "랜덤으로 건물이 추가되고 점수를 획득합니다"
+                },
+            ]
+        },
         {
             title: "포트폴리오",
             date: "2024-2024",
