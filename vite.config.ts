@@ -9,5 +9,6 @@ export default defineConfig({
             '@': resolve(__dirname, 'src'),
         },
     },
+    base: "/Portfolio",
     plugins: [react(), tsconfigPaths()],
 })

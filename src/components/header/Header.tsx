@@ -2,6 +2,7 @@ import { SECTION_MAP } from '@/data/SectionList';
 import css from './Header.module.scss';
 import { useContext } from 'react';
 import { AppContext } from '@/AppContextProvider';
+import { routes } from '@/MainRoutes';
 export default Header;
 function Header() {
     const title = '포트폴리오';
@@ -13,7 +14,7 @@ function Header() {
     return (
         <div className={css.header}>
             <div className={css.leftBar}>
-                <a href="/" className={css.link}>
+                <a href={routes.home} className={css.link}>
                     <img className={css.logo} src="logo-white.png" />
                     <span className={css.title}>{title}</span>
                 </a>
